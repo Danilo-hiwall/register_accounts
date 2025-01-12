@@ -15,6 +15,12 @@ MONTH_CHOICES = (
     ('DEC', 'Dezembro'),
 )
 
+OPCOES_SIM_NAO = [
+    ('Sim', 'sim'),
+    ('Não', 'Não'),
+]
+
+
 
 class Contas(models.Model):
     month = models.CharField(max_length=100, choices=MONTH_CHOICES)
@@ -22,6 +28,11 @@ class Contas(models.Model):
     matury = models.DateField(blank=True, null=True)
     value = models.FloatField(blank=True, null=True)
     annotation = models.CharField(max_length=200)
+    opcao = models.CharField(max_length=3, choices=OPCOES_SIM_NAO, verbose_name="Pago")
+
+    def __str__(self):
+        return dict(self.opcao).get(self.opcao, "Indefinido")
 
     def __str__(self):
         return self.name_accounts
+        
