@@ -5,4 +5,5 @@ urlpatterns = [
 
     path('cartao/', views.CartaoCreatListView.as_view(), name='cartao-create-list'),
     path('cartao/<int:pk>', views.CartaoRetriveUpdateDestroyViews.as_view(), name='cartao-detail-view'),
+    path('cartao/limit/', views.CardLimit.as_view(), name='limited-card'),
 ]
