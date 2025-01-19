@@ -4,16 +4,25 @@ from cartao.serializers import CartaoModelSerializer
 from rest_framework.permissions import IsAuthenticated
 from app.permissions import GlobalDefaulPermission
 from django.db.models import Sum
+from cartao.serializers import CartaoListDetailSerializer
 
 class CartaoCreatListView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaulPermission)
     queryset = Cartao.objects.all()
-    serializer_class = CartaoModelSerializer
+    
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return CartaoListDetailSerializer
+        return CartaoModelSerializer
 
 class CartaoRetriveUpdateDestroyViews(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalDefaulPermission)
     queryset = Cartao.objects.all()
-    serializer_class = CartaoModelSerializer
+    
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return CartaoListDetailSerializer
+        return CartaoModelSerializer
 
 
 

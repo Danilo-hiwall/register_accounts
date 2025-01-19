@@ -21,7 +21,6 @@ OPCOES_SIM_NAO = [
 ]
 
 
-
 class Contas(models.Model):
     month = models.CharField(max_length=100, choices=MONTH_CHOICES)
     name_accounts = models.CharField(max_length=200)
@@ -35,4 +34,3 @@ class Contas(models.Model):
 
     def __str__(self):
         return self.name_accounts
-        
