@@ -30,7 +30,6 @@ class CardLimit(views.APIView):
     permission_classes = (IsAuthenticated, GlobalDefaulPermission)
     queryset = Cartao.objects.all()
     
-
     def get(self, request):
         # Calcula o limite total dos cartões
         total_limit = Cartao.objects.aggregate(total_limit=Sum('limit_card'))['total_limit']
