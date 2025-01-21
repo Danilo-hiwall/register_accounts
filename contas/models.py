@@ -27,7 +27,7 @@ class Contas(models.Model):
     matury = models.DateField(blank=True, null=True)
     value = models.FloatField(blank=True, null=True)
     annotation = models.CharField(max_length=200)
-    opcao = models.CharField(max_length=3, choices=OPCOES_SIM_NAO, verbose_name="Pago")
+    pay = models.CharField(max_length=3, choices=OPCOES_SIM_NAO, verbose_name="Pago")
 
     def __str__(self):
         return dict(self.opcao).get(self.opcao, "Indefinido")
