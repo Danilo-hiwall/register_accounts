@@ -30,7 +30,7 @@ class Contas(models.Model):
     pay = models.CharField(max_length=3, choices=OPCOES_SIM_NAO, verbose_name="Pago")
 
     def __str__(self):
-        return dict(self.opcao).get(self.opcao, "Indefinido")
+        return dict(self.pay).get(self.pay, "Indefinido")
 
     def __str__(self):
         return self.name_accounts
