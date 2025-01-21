@@ -8,7 +8,7 @@ class ContaModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Contas
-        fields = ['id', 'month', 'name_accounts', 'matury', 'value', 'annotation', 'opcao', 'total']
+        fields = ['id', 'month', 'name_accounts', 'matury', 'value', 'annotation', 'pay', 'total']
 
 
     def get_total(self, obj):
