@@ -11,12 +11,12 @@ class ReceivablesSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ReceivablesDetailSerializer(serializers.ModelSerializer):
-    entries_of = DonoModelSerializer(many=True)
+    name = DonoModelSerializer(many=True)
     all_entries = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = recebiveis
-        fields = ['entry_date', 'entries_of', 'value', 'Depositor', 'payment_method', 'resume', 'all_entries']
+        fields = ['entry_date', 'name', 'value', 'depositor', 'payment_method', 'resume', 'all_entries']
 
     def get_all_entries(self, obj):
         from django.db.models import Sum
